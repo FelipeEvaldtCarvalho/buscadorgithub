@@ -1,0 +1,95 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    background-color: #24292F;
+    align-items: center;
+    color: whitesmoke;
+    padding: 20px 60px;
+}
+.navbar-logo{
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+.navbar-logo:hover{
+    color: #BEBFC1;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 7px;
+
+}
+.pesquisa-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    border:#d0d7de 1px solid;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.01);
+    margin: 35px 0;
+}
+.input-txt{
+    width: 40%;
+    min-width: 150px;
+    height: 35px;
+    border:#787879 2px solid;
+    border-radius: 7px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.titulo{
+    background-color: #f6f8fa;
+    width: 100%;
+    border-bottom: #d0d7de 1px solid;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+.conteudo{
+    width: 100%;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+hr{
+    width: 90%;
+    height: 1px;
+    border: none;
+    background-color: #d0d7de;
+}
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.footer p {
+    padding: 15px 0;
+}
+
+
+
+
+    
+
+
+
