@@ -11,12 +11,13 @@ pesquisaUser.addEventListener('keyup', (e) => {
     //pegar valor do input
     const inputValue = e.target.value;
 
-    if (pesquisaUser !== ''){
+    if (inputValue !== ''){
         //http call 
         github.getUser(inputValue)
         .then(info => {
             if(info.perfil.message === 'Not Found'){
                 //mostrar aviso
+                ui.mostrarAviso('Usuário não encontrado!', 'alerta');
             }else{
                 //mostrar o perfil
                 ui.mostrarPerfil(info.perfil);
@@ -24,5 +25,6 @@ pesquisaUser.addEventListener('keyup', (e) => {
         })
     }else{
         //limpar perfil
+        ui.limparPerfil();
     }
 });
