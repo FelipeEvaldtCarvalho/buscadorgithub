@@ -21,6 +21,7 @@ pesquisaUser.addEventListener('keyup', (e) => {
             }else{
                 //mostrar o perfil
                 ui.mostrarPerfil(info.perfil);
+                ui.mostrarRepos(info.repos);
             }
         })
     }else{

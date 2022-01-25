@@ -37,12 +37,18 @@
     border-radius: 7px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.01);
     margin: 35px 0;
+    height: auto;
 }
 #perfil{
     width: 100%;
     display: flex;
     flex-direction: column;
-    
+}
+#repos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .input-txt{
     width: 40%;
@@ -73,6 +79,11 @@
     border-top-right-radius: 7px;
     border-top-left-radius: 7px;
 }
+.titulo a {
+    font-size: 20px;
+    color: black;
+}
+
 .conteudo{
     width: 100%;
     padding: 20px 10px;
@@ -121,12 +132,6 @@ hr{
     align-items: center;
     width: 70%;
 }
-.col2{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
 .img-perfil{
     border-radius: 50%;
     height: 250px;
@@ -140,7 +145,8 @@ hr{
     padding: 10px 0;
     border: #d5d7da 1px solid;
     border-radius:7px;
-    width: 230px;
+    width: 100%;
+    max-width: 230px;
     text-align:center;
     margin: 0 20px;
     margin-bottom:20px;
@@ -150,6 +156,13 @@ hr{
     background: #0969da;
     color: whitesmoke;
 }
+.repos{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
 
 .balao{
     width: auto;
@@ -158,6 +171,12 @@ hr{
     margin: 5px;
     color: whitesmoke;
     border-radius: 7px;
+}
+
+.baloesRepos{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
 }
 
 
@@ -172,6 +191,9 @@ hr{
 }
 .azul-verde{
     background: rgb(36, 130, 143);
+}
+.amarelo{
+    background: rgb(219, 219, 0);
 }
 ul{
     list-style: none;
@@ -200,7 +222,33 @@ ul{
     margin-bottom: 5px;
     font-size: 12px;
 }
+@media (max-width: 480px) {
+    h2{
+        text-align: center;
+    }
+    .row{
+        flex-direction: column;
+    }
+    .row2{
+        flex-direction: column;
+        align-items: center;
+    }
+    .col1{
+        width: 100%;
+    }
+    .col2{
+        align-items: center;
+        width: 100%;
+    }
+    .baloesRepos{
+        flex-direction: column;
+    }
+    .btn-perfil{
+        width: 30%;
+        min-width: 180px
 
+    }
+}
 
     
 

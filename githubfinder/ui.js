@@ -4,6 +4,16 @@ class UI {
     }
     //Mostrar perfil na tela
     mostrarPerfil(usuario) {
+        const since = new Date(usuario.created_at);
+        const dia = since.getDate();
+        const mes = since.getMonth();
+        const ano = since.getFullYear();
+
+        if (usuario.company === null){
+            usuario.company = ' ';
+        }
+
+        
         this.perfil.innerHTML = `
         <div class="pesquisa-card">
         <div class="row">
@@ -13,8 +23,8 @@ class UI {
         </div>
         <div class="col2">
         <div class="row2">
-        <span class="balao azul">Public Repos: ${usuario.public_repos}</span>
-        <span class="balao cinza">Public Gists: ${usuario.public_gists}</span>
+        <span class="balao azul">Repositórios Públicos: ${usuario.public_repos}</span>
+        <span class="balao cinza">Gists Públicos: ${usuario.public_gists}</span>
         </div>
         <div class="row2">
         <span class="balao verde">Seguidores: ${usuario.followers}</span>
@@ -23,9 +33,9 @@ class UI {
         <br>
         <ul class="pesquisa-card">
         <li>Empresa: ${usuario.company}</li>
-        <li>Website/Blog: ${usuario.blog}</li>
+        <li>Website/Blog: <a href="${usuario.blog}">${usuario.blog}</a></li>
         <li>Localização: ${usuario.location}</li>
-        <li>Membro desde: ${usuario.created_at}</li>
+        <li>Membro desde: ${dia}/${mes}/${ano}</li>
         </ul>
         </div>
         </div>
@@ -34,6 +44,37 @@ class UI {
         <div id="repos"></div>
         `;
     }
+    //mostrar repositorios
+    mostrarRepos(repos) {
+        let saida = '';
+        
+        repos.forEach(function(repo){
+            saida += `           
+            
+            <div class="pesquisa-card">
+                <div class="repos">
+                    <div class='titulo'>   
+                        <a href="${repo.html_url}" target="blank">${repo.name}</a>
+                    </div>
+                    <div class="baloesRepos">
+                        <span class="balao amarelo">Estrelas: ${repo.stargazers_count}</span>
+                        <span class="balao azul">Vizualizações: ${repo.watchers_count}</span>
+                        <span class="balao azul-verde">Ramificações: ${repo.forks_count}</span>
+
+                    
+                    </div>
+                </div>
+            </div>
+            
+
+            `;
+            console.log(repo);
+        });
+        // saida repositorios
+        document.getElementById('repos').innerHTML = saida;
+
+    }
+    
     //mostrar alerta de erro
     mostrarAviso(mensagem, className) {
         //limpar alertas excessivos
@@ -63,15 +104,31 @@ class UI {
             alertaAtual.remove();
         }
     }
-
-
-
-
-
-
-
+    
     //limpar perfil
     limparPerfil() {
         this.perfil.innerHTML = '';
+    }
+
+    //alerta de macio
+    alertaMacio(className) {
+        //limpar alertas excessivos
+        this.limparAlerta();
+        //criar div
+        const div = document.createElement('div');
+        // add class
+        div.className = className;
+        // add texto
+        div.appendChild(document.createTextNode("Macio detectado"));
+        // parent element
+        const container = document.querySelector('.pesquisa-card');
+        // caixa de busca
+        const pesquisa = document.querySelector('.input-txt');
+        // inserir alerta
+        container.insertBefore(div, pesquisa);
+        //timer do alerta
+        setTimeout(() => {
+            this.limparAlerta();
+        }, 5000);
     }
 }
